@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/configs/app_configs.dart';
 import 'package:flutter_app/generated/l10n.dart';
+import 'package:flutter_app/ui/pages/first_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'bindings/initial_binding.dart';
 import 'common/app_themes.dart';
 import 'router/route_config.dart';
 import 'services/app_service.dart';
-import 'services/setting_service.dart';
-import 'ui/pages/splash/splash_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,7 +25,6 @@ void main() async {
 Future initServices() async {
   /// Here is where you put get_storage, hive, shared_pref initialization.
   /// or moor connection, or whatever that's async.
-  await Get.putAsync(() => SettingService().init());
   await Get.putAsync(() => AppService().init());
 }
 
@@ -52,12 +51,12 @@ class _MyAppState extends State<MyApp> {
     return GestureDetector(
       onTap: hideKeyboard,
       child: GetMaterialApp(
-        home: SplashPage(),
+        home: FirstScreen(),
         theme: AppThemes.lightTheme,
         darkTheme: AppThemes.darkTheme,
         themeMode: ThemeMode.system,
         initialBinding: InitialBinding(),
-        initialRoute: RouteConfig.splash,
+        initialRoute: RouteConfig.firstScreen,
         getPages: RouteConfig.getPages,
         localizationsDelegates: [
           GlobalMaterialLocalizations.delegate,
@@ -65,7 +64,7 @@ class _MyAppState extends State<MyApp> {
           GlobalCupertinoLocalizations.delegate,
           S.delegate,
         ],
-        locale: Get.find<SettingService>().currentLocate.value,
+        locale: Locale(AppConfigs.appLocal),
         supportedLocales: S.delegate.supportedLocales,
       ),
     );

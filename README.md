@@ -8,7 +8,8 @@ This repo is a boilerplate to create flutter application easily. It is based on 
     * [Dart Data Class](https://plugins.jetbrains.com/plugin/12429-dart-data-class)
     * [Flutter Intl](https://plugins.jetbrains.com/plugin/13666-flutter-intl)
     * [GetX](https://plugins.jetbrains.com/plugin/15919-getx)
-4. Clone the repo.
+3. Clone the repo.
+4. Run ./runner.sh or run 5, 6,7 by urself
 5. Run `flutter pub get`
 6. Run `flutter pub run intl_utils:generate`
 7. Run `flutter pub run build_runner build --delete-conflicting-outputs`

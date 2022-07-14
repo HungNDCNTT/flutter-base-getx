@@ -1,15 +1,13 @@
-import 'package:flutter_app/ui/pages/main/main_view.dart';
-import 'package:flutter_app/ui/pages/splash/splash_view.dart';
 import 'package:get/get.dart';
+
+import '../ui/pages/first_screen.dart';
 
 class RouteConfig {
   ///main page
-  static final String splash = "/splash";
-  static final String main = "/main";
+  static final String firstScreen = "/first_screen";
 
   ///Alias ​​mapping page
   static final List<GetPage> getPages = [
-    GetPage(name: splash, page: () => SplashPage()),
-    GetPage(name: main, page: () => MainPage()),
+    GetPage(name: firstScreen, page: () => FirstScreen()),
   ];
 }
